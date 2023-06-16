@@ -1,0 +1,111 @@
+﻿@model IEnumerable<GradeBook.EntityData.Student>
+
+@{
+    ViewData["Title"] = "StudentIndex";
+}
+<style>
+    .action-links {
+        text-align: center;
+    }
+
+    .link {
+        margin-right: 5px;
+        color: mediumpurple;
+        text-decoration: none;
+    }
+
+        .link:hover {
+            color: red;
+            text-decoration: underline;
+        }
+</style>
+
+<h3>Manage Student</h3>
+<hr />
+<div class="row mt-3 ">
+    <div class="col-md-6">
+        <form method="get" action="@Url.Action("StudentIndex")">
+            <div class="input-group">
+                <input type="text" name="searchName" id="searchName" class="form-control" style="height: 38px; width: 60%;" />
+                <button type="submit" class="btn custom-btn" style="height: 38px;">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <select class="form-control" onchange="location = this.value;" style="height: 38px; width: 60%;">
+            <option value="" disabled selected>Sort by...</option>
+            <option value="?sortOrder=name_desc">Sort by Name (Desc)</option>
+            <option value="?sortOrder=total_asc">Sort by Grade (Asc)</option>
+            <option value="?sortOrder=total_desc">Sort by Grade (Desc)</option>
+        </select>
+    </div>
+</div>
+
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Roll_No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CSC101)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CSC102)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CSC103)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CSC104)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roll_No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CSC101)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CSC102)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CSC103)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CSC104)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+                <td class="action-links">
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id}, new { @class = "link" }) |
+                    @Html.ActionLink("Report", "Marksheet", new { id=item.Id }, new { @class = "link" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "link" })
+                </td>
+
+        </tr>
+}
+    </tbody>
+</table>

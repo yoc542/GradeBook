@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: mediumpurple;
+            margin: 0;
+        }
+
+        h3 {
+          
+            color: mediumpurple;
+            
+        }
+
+        .title {
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: mediumpurple;
+            margin-top: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .box {
+            width: 230px;
+            height: 130px;
+            margin: 0 10px;
+            border: 2px solid mediumpurple;
+            border-radius: 10px;
+            padding-top: 30px;
+            justify-content: center;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: mediumpurple;
+            text-decoration: none; /* Remove underline for anchor tags */
+        }
+
+            .box:hover {
+                background-color: mediumpurple;
+                color: white;
+            }
+
+                .box:hover svg {
+                    fill: white; /* Change the fill color of the SVG on hover */
+                }
+
+            .box p {
+                margin: 0;
+            }
+
+            .box svg {
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+<body>
+    <h3>Dashboard</h3>
+    <hr />
+    <h1 class="title">Student Grade Management System</h1>
+
+    <div class="container">
+        <a href="/Student/Create" class="box">
+            <svg bootstrap-icon="PersonFill" width="32" height="32" color="mediumpurple"></svg>
+            <p>Add Student</p>
+        </a>
+        <a href="/Student/StudentIndex" class="box">
+            <svg bootstrap-icon="PeopleFill" width="32" height="32" color="mediumpurple"></svg>
+            <p>Manage Student</p>
+        </a>
+        <div class="box">
+            <svg bootstrap-icon="ArrowClockwise" width="32" height="32" color="mediumpurple"></svg>
+            <p>Logout</p>
+        </div>
+    </div>
+</body>
+</html>

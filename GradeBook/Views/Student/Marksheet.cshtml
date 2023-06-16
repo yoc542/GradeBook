@@ -1,0 +1,187 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .bold{
+            font-weight:bold;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        p {
+            font-size: 14px;
+            margin: 3px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .marksheet {
+            border: 2px solid black;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .college {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .report {
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 20px;
+        }
+
+        .college h3 {
+            margin: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+            table td,
+            table th {
+                border: 2px solid grey;
+                padding: 10px 10px;
+                text-align: center;
+                font-size: 14px;
+            }
+
+        .footer {
+            font-weight: bold;
+        }
+
+        .end {
+            text-align: right;
+        }
+
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 24px;
+            margin-right: 40px;
+            display: inline-block;
+            transform: rotate(340deg);
+        }
+
+        button {
+           
+            margin-left:3px;
+        }
+        .right{
+            float: right;
+        }
+
+    </style>
+    <style media="print">
+        /* Styles for printing only */
+        .print-button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex right"> 
+    <button class="print-button" onclick="window.print()">Print</button>
+        <a href="/Student/StudentIndex">  <button class="print-button">Back</button></a>
+    </div>
+    <div class="container">
+        <div class="marksheet">
+            <div class="college">
+                <h3>Bhaktapur Multiple Campus</h3>
+                <p>Dudhpati-07, Bhaktapur</p>
+            </div>
+            <div class="report">Progress Report Year 2080</div>
+            <div class="flex">
+                <p>Student ID:</p>
+                <p class="underline">@Model.Roll_No</p>
+            </div>
+            <div class="flex">
+                <p>Student Name:</p>
+                <p class="underline">@Model.Name</p>
+            </div>
+            <table>
+                <thead class="bold">
+                    <tr>
+                        <td colspan="3">Course</td>
+                        <td rowspan="2">Semester</td>
+                        <td rowspan="2">Credits</td>
+                        <td rowspan="2">Marks Obtained</td>
+                    </tr>
+                    <tr>
+                        <td>Code</td>
+                        <td colspan="2">Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CSC 101</td>
+                        <td colspan="2">Compiler</td>
+                        <td>Fall 2015</td>
+                        <td>3.0</td>
+                        <td>@Model.CSC101</td>
+                    </tr>
+                    <tr>
+                        <td>CSC 102</td>
+                        <td colspan="2">Net Centric</td>
+                        <td>Fall 2015</td>
+                        <td>3.0</td>
+                        <td>@Model.CSC102</td>
+                    </tr>
+                    <tr>
+                        <td>CSC 103</td>
+                        <td colspan="2">Egovernance</td>
+                        <td>Fall 2015</td>
+                        <td>3.0</td>
+                        <td>@Model.CSC103</td>
+                    </tr>
+                    <tr>
+                        <td>CSC 104</td>
+                        <td colspan="2">Ecommerce</td>
+                        <td>Fall 2015</td>
+                        <td>3.0</td>
+                        <td>@Model.CSC104</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="footer">Total</td>
+                        <td>15.0</td>
+                        <td colspan="2">@Model.Total</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="footer">Grade</td>
+                        <td colspan="3">@Model.Grade</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="end">
+                <p class="signature">Ambika</p>
+                <hr>
+                <p>Controller of Examination</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GradeBook</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GradeBook.styles.css" asp-append-version="true" />
+    <style>
+
+  h4{
+      color:mediumpurple;
+  }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background-color: mediumpurple;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            
+            font-size: 18px;
+            color: white;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            display: flex;
+            align-items:center;
+            gap:5px;
+            margin-left:5px;
+            padding: 8px;
+        }
+
+        /* CSS for content */
+        .content {
+            margin-left: 250px; /* Adjust this value to match the width of the sidebar */
+            padding: 20px;
+        }
+
+        .heading {
+            color: white;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        .custom-btn {
+            background-color: mediumpurple;
+            color: white;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h4 class="heading">GradeBook</h4>
+        <ul>
+            <a href="/Student/Dashboard">
+                <svg bootstrap-icon="Speedometer2" width="18" height="18" color="white"></svg>
+            <li>Dashboard</li>
+            </a>
+            <a href="/Student/StudentIndex">
+                <svg bootstrap-icon="PeopleFill" width="18" height="18" color="white"></svg>
+            <li>Manage Student</li>
+            </a>
+            <a href="/Student/Create">
+                <svg bootstrap-icon="PersonFill" width="18" height="18" color="white"></svg>
+            <li>Add Student</li>
+            </a>
+        </ul>
+    </div>
+
+         
+
+    <div class="content">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
